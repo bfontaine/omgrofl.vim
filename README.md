@@ -1,7 +1,8 @@
 omgrofl.vim
 ===========
 
-This is a Vim syntax file for [Omgrofl](http://esolangs.org/wiki/omgrofl)
+This is a Vim syntax file for the [Omgrofl](http://esolangs.org/wiki/omgrofl)
+language.
 
 Install
 -------
