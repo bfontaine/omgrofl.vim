@@ -5,12 +5,11 @@
 " Latest Revision: 18 August 2012
 
 if exists("b:current_syntax")
-    finish
+"    finish
 endif
 
 " numbers
 syn match omgroflNumber '\<\d\+\>'
-syn match omgroflNumber '\<-\d\+\>'
 
 " variables
 syn match omgroflVariable "\<[lL][oO]\+[lL]\>"
@@ -27,7 +26,9 @@ syn keyword omgroflTodo TODO FIXME XXX NOTE contained
 syn match omgroflComment "\<w00t\>.*$" contains=omgroflTodo
 
 " conditionals
-syn keyword omgroflOperator wtf liek uber nextgroup=omgroflVariable skipwhite
+syn keyword omgroflConditional wtf nextgroup=omgroflVariable skipwhite
+syn keyword omgroflNot nope nextgroup=omgroflComparisonOperator skipwhite
+syn keyword omgroflComparisonOperator liek uber nextgroup=omgroflVariable skipwhite
 
 " assignments
 syn keyword omgroflAssignment iz nextgroup=omgroflNumber skipwhite
@@ -51,7 +52,7 @@ syn match omgroflStackOperator "\<haxor\>" nextgroup=omgroflVariable skipwhite
 " other statements
 syn keyword omgroflStatement brb
 
-syn cluster omgroflAll contains=omgroflAssignment,omgroflBreak,omgroflComment,omgroflExit,omgroflKeyword,omgroflIOOperator,omgroflLoopBegin,omgroflLoopTo,omgroflNull,omgroflNumber,omgroflOperator,omgroflStackOperator,omgroflStatement,omgroflTodo,omgroflVariable,omgroflVarOperation
+syn cluster omgroflAll contains=omgroflAssignment,omgroflBreak,omgroflComment,omgroflConditional,omgroflComparisonOperator,omgroflExit,omgroflKeyword,omgroflIOOperator,omgroflLoopBegin,omgroflLoopTo,omgroflNot,omgroflNull,omgroflNumber,omgroflOperator,omgroflStackOperator,omgroflStatement,omgroflTodo,omgroflVariable,omgroflVarOperation
 
 " loops
 syn keyword omgroflBreak tldr
@@ -66,20 +67,23 @@ syn region omgroflLoop start="\<4\>" end="brb" fold transparent contains=@omgrof
 
 let b:current_syntax = "omgrofl"
 
-hi def link omgroflAssignment    Statement
-hi def link omgroflBreak         Statement
-hi def link omgroflComment       Comment
-hi def link omgroflExit          Statement
-hi def link omgroflKeyword       Statement
-hi def link omgroflIOOperator    Operator
-hi def link omgroflLoop          Operator
-hi def link omgroflLoopBegin     Statement
-hi def link omgroflLoopTo        Statement
-hi def link omgroflNull          Special
-hi def link omgroflNumber        Number
-hi def link omgroflOperator      Operator
-hi def link omgroflStackOperator Operator
-hi def link omgroflStatement     Statement
-hi def link omgroflTodo          Todo
-hi def link omgroflVariable      Identifier
-hi def link omgroflVarOperation  Statement
+hi def link omgroflAssignment         Statement
+hi def link omgroflBreak              Statement
+hi def link omgroflComment            Comment
+hi def link omgroflConditional        Statement
+hi def link omgroflComparisonOperator Operator
+hi def link omgroflExit               Statement
+hi def link omgroflKeyword            Statement
+hi def link omgroflIOOperator         Operator
+hi def link omgroflLoop               Operator
+hi def link omgroflLoopBegin          Statement
+hi def link omgroflLoopTo             Statement
+hi def link omgroflNot                Operator
+hi def link omgroflNull               Special
+hi def link omgroflNumber             Number
+hi def link omgroflOperator           Operator
+hi def link omgroflStackOperator      Operator
+hi def link omgroflStatement          Statement
+hi def link omgroflTodo               Todo
+hi def link omgroflVariable           Identifier
+hi def link omgroflVarOperation       Statement
